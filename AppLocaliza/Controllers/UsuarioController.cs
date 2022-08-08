@@ -24,15 +24,18 @@ namespace AppLocaliza.Controllers
         }
 
 
-        [HttpGet("{login}, {pass}")]
-        public IActionResult Login(string login, string pass)
+        [HttpPost("{user}")]
+        public IActionResult Login(string user, [FromBody] Usuario usuario)
         {
-            var role = _user.GetUsuario(login, pass);
+            if (user != usuario.usuario)
+                return NotFound();
+
+            var role = _user.GetUsuario(usuario.usuario, usuario.senha);
 
             if (string.IsNullOrEmpty(role))
                 return NotFound();
 
-            var token = _user.AuthenticateUser(login, role);
+            var token = _user.AuthenticateUser(usuario.usuario, role);
 
             if (string.IsNullOrEmpty(token))
                 return NotFound();

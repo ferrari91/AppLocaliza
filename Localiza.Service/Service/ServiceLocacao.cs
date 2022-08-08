@@ -13,11 +13,13 @@ namespace Localiza.Service.Service
     {
         protected readonly IRepositoryLocacao _r;
         protected readonly IServiceVeiculo _v;
+        protected readonly IServiceCliente _c;
 
-        public ServiceLocacao(IRepositoryLocacao r, IServiceVeiculo v)
+        public ServiceLocacao(IRepositoryLocacao r, IServiceVeiculo v, IServiceCliente c)
         {
             _r = r;
             _v = v;
+            _c = c;
         }
 
         public bool Delete(int id)
@@ -94,6 +96,25 @@ namespace Localiza.Service.Service
         public bool Include(CadLocacao cadLocacao)
         {
             return _r.Include(cadLocacao);
+        }
+
+        public bool Register(string placa, string clienteRef)
+        {
+            var veiculo = _v.GetAllRows().Where(x => x.Placa == placa).First();
+            var cliente = _c.GetAllRows().Where(x => x.Nome == clienteRef || x.Documento == clienteRef).First();
+
+            if (cliente == null || veiculo == null)
+                return false;
+
+            return Include(
+                new CadLocacao
+                {
+                    IdLocacao = GetLastPK(),
+                    CodigoCliente = cliente.IdCliente,
+                    CodigoVeiculo = veiculo.IdVeiculo,
+                    Saida = DateTime.Now
+                }
+                );
         }
     }
 }

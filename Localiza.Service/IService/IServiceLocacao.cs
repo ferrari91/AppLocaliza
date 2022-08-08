@@ -15,6 +15,8 @@ namespace Localiza.Service.IService
 
         bool Edit(CadLocacao cadLocacao);
 
+        bool Register(string placa, string clienteRef);
+
         bool Delete(int id);
 
         int GetLastPK();

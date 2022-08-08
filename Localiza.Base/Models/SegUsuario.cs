@@ -19,4 +19,13 @@ namespace Localiza.Base.Models
 
         public virtual ICollection<CadLocacao> CadLocacao { get; set; }
     }
+
+    public class Usuario
+    {
+        public string usuario { get; set; }
+
+        public string senha { get; set; }
+
+    }
+
 }
