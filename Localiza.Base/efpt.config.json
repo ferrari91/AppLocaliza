@@ -1,0 +1,51 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "C:\\Users\\ferra\\OneDrive\\Área de Trabalho\\database.dbContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "Localiza.Base",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "seg_usuario",
+         "ObjectType": 0
+      },
+      {
+         "Name": "cad_veiculo",
+         "ObjectType": 0
+      },
+      {
+         "Name": "pes_cliente",
+         "ObjectType": 0
+      },
+      {
+         "Name": "cad_locacao",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "localizadb",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}
