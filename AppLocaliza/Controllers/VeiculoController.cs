@@ -24,9 +24,9 @@ namespace AppLocaliza.Controllers
 
         [HttpPost]
         [AuthorizeUser("Administrador, Operador")]
-        public CadVeiculo NewVeiculo(CadVeiculo veiculo)
+        public void NewVeiculo(CadVeiculo veiculo)
         {
-            return _user.Include(veiculo);
+             _user.Include(veiculo);
         }
 
         [HttpGet("{id}")]

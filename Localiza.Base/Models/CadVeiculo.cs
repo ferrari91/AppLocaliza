@@ -17,6 +17,7 @@ namespace Localiza.Base.Models
         public string Combustivel { get; set; }
         public string Modelo { get; set; }
         public string Marca { get; set; }
+        public string Placa { get; set; }
 
         public virtual ICollection<CadLocacao> CadLocacao { get; set; }
     }

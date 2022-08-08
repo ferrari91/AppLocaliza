@@ -6,14 +6,14 @@
 
         T GetByPK(params object[] value);
 
-        T Include(T obj);
+        bool Include(T obj);
 
-        T Edit(T obj);
+        bool Edit(T obj);
 
-        void Delete(T obj);
+        bool Delete(T obj);
 
-        void Delete(params object[] value);
+        bool Delete(params object[] value);
 
-        void Save();
+        bool Save();
     }
 }

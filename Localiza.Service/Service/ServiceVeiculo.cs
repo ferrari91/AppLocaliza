@@ -18,15 +18,15 @@ namespace Localiza.Service.Service
             _r = repository;
         }
 
-        public void Delete(int index)
+        public bool Delete(int index)
         {
-            _r.Delete(index);
+            return _r.Delete(index);
         }
 
-        public void Edit(CadVeiculo cadVeiculo)
+        public bool Edit(CadVeiculo cadVeiculo)
         {
             cadVeiculo.Combustivel = ValidCombustivel(cadVeiculo.Combustivel);
-            _r.Edit(cadVeiculo);
+            return _r.Edit(cadVeiculo);
         }
 
         public List<CadVeiculo> GetAllRows()
@@ -52,9 +52,7 @@ namespace Localiza.Service.Service
             return models[0];
         }
 
-
-
-        public CadVeiculo Include(CadVeiculo cadVeiculo)
+        public bool Include(CadVeiculo cadVeiculo)
         {
             cadVeiculo.Combustivel = ValidCombustivel(cadVeiculo.Combustivel);
 
@@ -69,9 +67,16 @@ namespace Localiza.Service.Service
             return _r.Include(cadVeiculo);
         }
 
-        public bool isTrue(bool value)
+        public CadVeiculo GetByBoard(string board)
         {
-            return value;
+            try
+            {
+                return GetAllRows().Where(x => x.Placa == board).First();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

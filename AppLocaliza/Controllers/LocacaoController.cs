@@ -16,11 +16,11 @@ namespace AppLocaliza.Controllers
             _user = user;
         }
 
-        [AuthorizeUser("Administrador, Operador, Cliente")]
-        [HttpPost("{idVeiculo}, {saida}, {retorno}, {cheio}, {limpo}, {arranhao}, {amassado}")]
-        public CadLocacao DoSimulator(int idVeiculo, DateTime saida, DateTime retorno, bool cheio = true, bool limpo = true, bool arranhao = false, bool amassado = false)
+       // [AuthorizeUser("Administrador, Operador, Cliente")]
+        [HttpPost("{placa}")]
+        public CadLocacao DoSimulator([FromQuery] string placa, [FromBody] SimulatorLocacao loc)
         {
-            return _user.DoSimulate(idVeiculo, saida, retorno, cheio, limpo, arranhao, amassado);
+            return _user.DoSimulate(placa, loc);
         }
     }
 }

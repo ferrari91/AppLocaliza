@@ -11,16 +11,17 @@ namespace Localiza.Service.IService
     {
         List<CadVeiculo> GetAllRows();
 
-        CadVeiculo Include(CadVeiculo cadVeiculo);
+        bool Include(CadVeiculo cadVeiculo);
 
         CadVeiculo GetByIndex(int index);
 
-        void Edit(CadVeiculo cadVeiculo);
+        bool Edit(CadVeiculo cadVeiculo);
 
-        void Delete(int index);
+        bool Delete(int index);
 
         string ValidCombustivel(string combustivel);
 
-        bool isTrue(bool value);
+        CadVeiculo GetByBoard(string board);
+
     }
 }

@@ -13,14 +13,14 @@ namespace Localiza.Service.Service
             _r = r;
         }
 
-        public void Delete(int index)
+        public bool Delete(int index)
         {
-            _r.Delete(index);
+            return _r.Delete(index);
         }
 
-        public void Edit(PesCliente pesCliente)
+        public bool Edit(PesCliente pesCliente)
         {
-            _r.Edit(pesCliente);
+            return _r.Edit(pesCliente);
         }
 
         public List<PesCliente> GetAllRows()
@@ -33,7 +33,7 @@ namespace Localiza.Service.Service
            return _r.GetByPK(index);
         }
 
-        public PesCliente Include(PesCliente pesCliente)
+        public bool Include(PesCliente pesCliente)
         {
             if (_r.GetAllDatas().Count() == 0)
                 pesCliente.IdCliente = 1;

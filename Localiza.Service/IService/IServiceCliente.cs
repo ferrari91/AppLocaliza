@@ -11,12 +11,12 @@ namespace Localiza.Service.IService
     {
         List<PesCliente> GetAllRows();
 
-        PesCliente Include(PesCliente pesCliente);
+        bool Include(PesCliente pesCliente);
 
         PesCliente GetByIndex(int index);
 
-        void Edit(PesCliente pesCliente);
+        bool Edit(PesCliente pesCliente);
 
-        void Delete(int index);
+        bool Delete(int index);
     }
 }

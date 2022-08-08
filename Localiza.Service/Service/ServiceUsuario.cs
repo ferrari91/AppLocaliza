@@ -42,9 +42,9 @@ namespace Localiza.Service.Service
             return tokenHandler.WriteToken(token);
         }
 
-        public void Delete(int index)
+        public bool Delete(int index)
         {
-            _r.Delete(index);
+           return  _r.Delete(index);
         }
 
         public List<SegUsuario> GetAllRows()
@@ -62,7 +62,7 @@ namespace Localiza.Service.Service
             return users.Where(x => x.Usuario == user).Where(x => x.Senha == pass).First()?.Tipo;
         }
 
-        public SegUsuario Include(SegUsuario usuario)
+        public bool Include(SegUsuario usuario)
         {
             var users = _r.GetAllDatas();
             if (users.Count() == 0)

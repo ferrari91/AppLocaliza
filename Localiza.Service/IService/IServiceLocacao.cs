@@ -11,16 +11,16 @@ namespace Localiza.Service.IService
     {
         List<CadLocacao> GetAllRows();
 
-        CadLocacao Include(CadLocacao cadLocacao);
+        bool Include(CadLocacao cadLocacao);
 
-        void Edit(CadLocacao cadLocacao);
+        bool Edit(CadLocacao cadLocacao);
 
-        void Delete(int id);
+        bool Delete(int id);
 
         int GetLastPK();
 
         CadLocacao GetByIndex(int id);
 
-        CadLocacao DoSimulate(int veiculoId, DateTime entrance, DateTime exit, bool full = true, bool clenead = true, bool scratch = false, bool kneaded = false);
+        CadLocacao DoSimulate(string board, SimulatorLocacao simulator);
     }
 }

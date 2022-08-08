@@ -18,9 +18,9 @@ namespace AppLocaliza.Controllers
 
 
         [HttpPost]
-        public SegUsuario Include(SegUsuario usuario)
+        public void Include(SegUsuario usuario)
         {
-            return _user.Include(usuario);
+             _user.Include(usuario);
         }
 
 

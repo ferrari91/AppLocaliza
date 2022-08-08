@@ -26,9 +26,9 @@ namespace AppLocaliza.Controllers
 
         [HttpPost]
         [AuthorizeUser("Administrador, Operador")]
-        public PesCliente NewCliente(PesCliente cliente)
+        public void NewCliente(PesCliente cliente)
         {
-            return _user.Include(cliente);
+             _user.Include(cliente);
         }
 
         [HttpGet("{id}")]

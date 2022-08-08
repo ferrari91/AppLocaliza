@@ -7,13 +7,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Localiza.Base.Models
 {
-    public partial class CUsersferraOneDriveÁreadeTrabalhodatabasedbContext : DbContext
+    public partial class DataBaseContext : DbContext
     {
-        public CUsersferraOneDriveÁreadeTrabalhodatabasedbContext()
+        public DataBaseContext()
         {
         }
 
-        public CUsersferraOneDriveÁreadeTrabalhodatabasedbContext(DbContextOptions<CUsersferraOneDriveÁreadeTrabalhodatabasedbContext> options)
+        public DataBaseContext(DbContextOptions<DataBaseContext> options)
             : base(options)
         {
         }
@@ -27,7 +27,7 @@ namespace Localiza.Base.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source=database.db");
+                optionsBuilder.UseSqlite("Data Source=C:\\Users\\ferra\\OneDrive\\Área de Trabalho\\database.db");
             }
         }
 
@@ -93,6 +93,8 @@ namespace Localiza.Base.Models
                 entity.Property(e => e.Marca).HasColumnName("marca");
 
                 entity.Property(e => e.Modelo).HasColumnName("modelo");
+
+                entity.Property(e => e.Placa).HasColumnName("placa");
 
                 entity.Property(e => e.Valor)
                     .HasColumnType("NUMERIC")

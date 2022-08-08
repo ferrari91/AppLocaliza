@@ -6,9 +6,9 @@ namespace Localiza.Service.IService
     {
         List<SegUsuario> GetAllRows();
 
-        SegUsuario Include(SegUsuario usuario);
+        bool Include(SegUsuario usuario);
 
-        void Delete(int index);
+        bool Delete(int index);
 
         string GetUsuario(string user, string pass);
 

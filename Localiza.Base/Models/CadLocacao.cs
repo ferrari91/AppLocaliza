@@ -21,4 +21,14 @@ namespace Localiza.Base.Models
         public virtual SegUsuario CodigoClienteNavigation { get; set; }
         public virtual CadVeiculo CodigoVeiculoNavigation { get; set; }
     }
+
+    public class SimulatorLocacao
+    {
+        public DateTime Saida { get; set; }
+        public DateTime Retorno { get; set; }
+        public bool Abastecido { get; set; }
+        public bool Limpo { get; set; }
+        public bool Arranhado { get; set; }
+        public bool Amassado { get; set; }
+    }
 }

@@ -5,23 +5,23 @@ namespace Localiza.Repository.Repository
 {
     public class RepositoryBase<T> : IRepositoryBase<T>, IDisposable where T : class
     {
-        protected readonly CUsersferraOneDriveÁreadeTrabalhodatabasedbContext _context;
+        protected readonly DataBaseContext _context;
 
         public RepositoryBase()
         {
-            _context = new CUsersferraOneDriveÁreadeTrabalhodatabasedbContext();
+            _context = new DataBaseContext();
         }
 
-        public void Delete(T obj)
+        public bool Delete(T obj)
         {
             _context.Set<T>().Remove(obj);
-            Save();
+            return Save();
         }
 
-        public void Delete(params object[] value)
+        public bool Delete(params object[] value)
         {
             var obj = GetByPK(value);
-            Delete(obj);
+            return Delete(obj);
         }
 
         public void Dispose()
@@ -29,11 +29,10 @@ namespace Localiza.Repository.Repository
             _context.Dispose();
         }
 
-        public T Edit(T obj)
+        public bool Edit(T obj)
         {
             _context.Entry(obj).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            Save();
-            return obj;
+            return Save();
         }
 
         public List<T> GetAllDatas()
@@ -46,16 +45,16 @@ namespace Localiza.Repository.Repository
             return _context.Set<T>().Find(value);
         }
 
-        public T Include(T obj)
+        public bool Include(T obj)
         {
             _context.Set<T>().Add(obj);
-            Save();
-            return obj;
+            return Save();
         }
 
-        public void Save()
+        public bool Save()
         {
-            _context.SaveChanges();
+            bool result = Convert.ToBoolean(_context.SaveChanges());
+            return result;
         }
     }
 }
