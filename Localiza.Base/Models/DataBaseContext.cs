@@ -27,7 +27,7 @@ namespace Localiza.Base.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source=C:\\Users\\ferra\\OneDrive\\Área de Trabalho\\database.db");
+                optionsBuilder.UseSqlite("Data Source=SEUDIRETORIO\\database.db");
             }
         }
 
