@@ -1,10 +1,7 @@
-﻿using Localiza.Repository.Interface;
-using Localiza.Repository.Repository;
-using Localiza.Service.IService;
+﻿using Localiza.Repository.Repository;
 using Localiza.Service.Service;
 using Moq;
 using Xunit;
-using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace Localiza.Service.Test.Service
 {
@@ -18,30 +15,40 @@ namespace Localiza.Service.Test.Service
         public ServiceVeiculoTest()
         {
             _repository     = new Mock<RepositoryVeiculo>().Object;
-            _service        = new ServiceVeiculo(new Mock<IRepositoryVeiculo>().Object);
+            _service        = new Mock<ServiceVeiculo>(_repository).Object;
         }
 
 
-        [TestMethod]
-        public void ValidCombustivelTest()
+        [Theory]
+        [InlineData("Gasolina")]
+        [InlineData("Alcool")]
+        [InlineData("Diesel")]
+        [InlineData("Hibrido")]
+        public void ValidCombustivelTest(string value)
         {
-            var combustivel = String.Empty;
-            Xunit.Assert.NotEqual(String.Empty, _service.ValidCombustivel(combustivel));
+            Xunit.Assert.NotEqual("", _service.ValidCombustivel(value));
         }
 
-        [TestMethod]
+        [Fact]
         public void GetAllRowsTest()
         {
             var rows = _repository.GetAllDatas();
             Xunit.Assert.NotEmpty(rows);
         }
 
-        [TestMethod]
-        public void GetUserByIndexTest()
+        [Theory]
+        [InlineData(1)]
+        public void GetUserByIndexTest(int index)
         {
-            var veiculo = _repository.GetByPK(-1);
-            Xunit.Assert.Null(veiculo);
+            var veiculo = _repository.GetByPK(index);
+            Xunit.Assert.NotNull(veiculo);
         }
 
+        [Theory]
+        [InlineData("WWW123")]
+        public void GetByBoardTest(string value)
+        {
+            Xunit.Assert.NotNull(_service.GetByBoard(value));
+        }
     }
 }
